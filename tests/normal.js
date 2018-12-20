@@ -8,7 +8,9 @@ var renderer = new Renderer()
 renderer.resources = path.resolve(__dirname, "resources")
 renderer.nodemodules = path.resolve(__dirname,'../node_modules')
 
-console.log(render())
+async function log(){
+    console.log(await render())
+}
 
 async function render(){
     var response = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -19,3 +21,5 @@ async function render(){
     })
     return html
 }
+
+log()
